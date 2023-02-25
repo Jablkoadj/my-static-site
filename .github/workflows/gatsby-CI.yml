@@ -2,7 +2,7 @@
 #
 # To get started with Gatsby see: https://www.gatsbyjs.com/docs/quick-start/
 #
-name: Deploy Gatsby site to Pages
+name: Gatsby site CI
 
 on:
   # Runs on pushes targeting the default branch
@@ -55,33 +55,33 @@ jobs:
         with:
           node-version: "18"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v3
-        with:
-          # Automatically inject pathPrefix in your Gatsby configuration file.
-          #
-          # You may remove this line if you want to manage the configuration yourself.
-          static_site_generator: gatsby
-      - name: Restore cache
-        uses: actions/cache@v3
-        with:
-          path: |
-            public
-            .cache
-          key: ${{ runner.os }}-gatsby-build-${{ hashFiles('public') }}
-          restore-keys: |
-            ${{ runner.os }}-gatsby-build-
-      - name: Install dependencies
-        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
-      - name: Build with Gatsby
-        env:
-          PREFIX_PATHS: 'true'
-        run: ${{ steps.detect-package-manager.outputs.manager }} run build
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: ./public
+#       - name: Setup Pages
+#         id: pages
+#         uses: actions/configure-pages@v3
+#         with:
+#           # Automatically inject pathPrefix in your Gatsby configuration file.
+#           #
+#           # You may remove this line if you want to manage the configuration yourself.
+#           static_site_generator: gatsby
+#       - name: Restore cache
+#         uses: actions/cache@v3
+#         with:
+#           path: |
+#             public
+#             .cache
+#           key: ${{ runner.os }}-gatsby-build-${{ hashFiles('public') }}
+#           restore-keys: |
+#             ${{ runner.os }}-gatsby-build-
+#       - name: Install dependencies
+#         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+#       - name: Build with Gatsby
+#         env:
+#           PREFIX_PATHS: 'true'
+#         run: ${{ steps.detect-package-manager.outputs.manager }} run build
+#       - name: Upload artifact
+#         uses: actions/upload-pages-artifact@v1
+#         with:
+#           path: ./public
 #     - run: npm ci
 #     - run: npm run build --if-present
 #     - run: npm test
