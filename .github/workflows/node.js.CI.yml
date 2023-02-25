@@ -27,12 +27,14 @@ jobs:
       - run: npm install -g gatsby-cli
       - run: gatsby build
       # - run: npm test- 
+      
+      - run: grep "Gatsby" ./public/index.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
           path: ./public
   
-  test:
-    runs-on: ubuntu-latest
-    steps: 
-      - run: grep "Gatsby" ./public/index.html
+  # test:
+  #   runs-on: ubuntu-latest
+  #   steps: 
+  #     
