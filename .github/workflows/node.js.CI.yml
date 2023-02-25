@@ -31,3 +31,8 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         with:
           path: ./public
+  
+  test:
+    runs-on: ubuntu-latest
+    steps: 
+      - run: grep "Gatsby" ./public/index.html
