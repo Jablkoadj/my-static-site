@@ -56,7 +56,8 @@ jobs:
           node-version: "18"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
       - name: Setup Gatsby
-        run: npm install -g npm@9.5.0    
+        run: sudo apt install npm
+             npm install -g npm@9.5.0    
              npm install -g gatsby-cli 
       
 #       - name: Setup Pages
