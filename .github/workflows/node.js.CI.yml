@@ -38,7 +38,7 @@ jobs:
       - run: grep "Gatsby" ./public/index.html
       - run: gatsby serve &
       - run: sleep 10
-      - run: curl " http://localhost:9000/" | grep -q "Gatsby"
+      - run: curl "http://localhost:9000/" | tac | tac |grep -q "Gatsby"
   # test:
 
   #   runs-on: ubuntu-latest
