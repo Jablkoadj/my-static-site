@@ -28,10 +28,7 @@ jobs:
       - run: gatsby build
       # - run: npm test- 
       
-      # - name: test gatsby install
-      # - run: grep "Gatsby" ./public/index.html
-
-
+      - run: grep "Gatsby" ./public/index.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
