@@ -36,7 +36,8 @@ jobs:
           path: ./public
 
       - run: grep "Gatsby" ./public/index.html
-      - run: gatsby serve
+      - run: gatsby serve &
+      - run: sleep 10
       - run: curl " http://localhost:9000/" | grep -q"Gatsby"
   # test:
 
