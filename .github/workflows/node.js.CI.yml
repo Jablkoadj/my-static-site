@@ -47,7 +47,10 @@ jobs:
 
     
     steps:
-     
+      - run: npm install
+      - run: npm ci
+      # - run: npm run build --if-present
+      - run: npm install -g gatsby-cli
       
       - run: grep "Gatsby" ./public/index.html
     #   - name: Download artifact
