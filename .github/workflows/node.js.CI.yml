@@ -39,15 +39,17 @@ jobs:
       - run: gatsby serve &
       - run: sleep 10
       - run: curl "http://localhost:9000/" | tac | tac |grep -q "Gatsby"
-  # test:
+  
+  
+  test:
 
-  #   runs-on: ubuntu-latest
+    runs-on: alpine
 
     
-    # steps:
+    steps:
      
       
-    #   # - run: grep "xxxxxxxxxxxxx" ./public/index.html
+      - run: grep "Gatsby" ./public/index.html
     #   - name: Download artifact
     #     uses: actions/download-pages-artifact@v1
     #     with:
