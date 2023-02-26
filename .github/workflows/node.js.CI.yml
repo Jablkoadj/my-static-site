@@ -28,15 +28,31 @@ jobs:
       - run: gatsby build
       # - run: npm test- 
       
-      - run: grep "Gatsby" ./public/index.html
+      
       # - run: grep "xxxxxxxxxxxxx" ./public/index.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
           path: ./public
 
+      - run: grep "Gatsby" ./public/index.html
       - run: gatsby serve
-  
+      - run: curl " http://localhost:9000/" | grep -q"Gatsby"
+  # test:
+
+  #   runs-on: ubuntu-latest
+
+    
+  #   steps:
+     
+      
+  #     # - run: grep "xxxxxxxxxxxxx" ./public/index.html
+  #     - name: Download artifact
+  #       uses: actions/download-pages-artifact@v1
+  #       with:
+  #         path: ./public
+  #     - run: grep "Gatsby" ./public/index.html
+  #     - run: gatsby serve
   # test:
   #   runs-on: ubuntu-latest
   #   steps: 
